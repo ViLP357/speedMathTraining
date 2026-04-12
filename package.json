@@ -1,0 +1,23 @@
+{
+  "name": "speedmathtraining",
+  "version": "1.0.0",
+  "description": "Website for training mental math",
+  "homepage": "https://github.com/ViLP357/speedMathTraining#readme",
+  "bugs": {
+    "url": "https://github.com/ViLP357/speedMathTraining/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ViLP357/speedMathTraining.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "typescript": "^6.0.2"
+  }
+}
