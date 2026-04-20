@@ -1,5 +1,5 @@
 import './App.css'
-import QuestionForm from './components/QuestionForm';
+import QuestionArea from './components/QuestionArea';
 
 //import type { Question } from "./types"
 
@@ -9,15 +9,15 @@ import QuestionForm from './components/QuestionForm';
 const App = () => {
 
 
-  const courseName = "Mental math training";
+  const siteName = "Mental math training";
 
 
   return (
     <div>
-      {courseName}
+      {siteName}
 
     
-    <QuestionForm/>
+    <QuestionArea/>
     </div>
   )
 }
