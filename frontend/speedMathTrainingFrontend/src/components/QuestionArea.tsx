@@ -6,11 +6,15 @@ import QuestionForm from "./QuestionForm";
 const nextQuestion =  (setQuestionNumber : React.Dispatch<React.SetStateAction<number>>, questionNumber : number) => {
   setQuestionNumber(questionNumber + 1)
 }
-const questionRight =  (setCorrect : React.Dispatch<React.SetStateAction<number>>, correct : number) => {
-  setCorrect(correct + 1)
-}
 
 const QuestionArea = () => {
+  const handleAnswer = (isCorrect : boolean) => {
+    if (isCorrect) {
+      setCorrect(correct+1);
+    }
+    setQuestionNumber(questionNumber+1)
+  }
+
     const [questionNumber, setQuestionNumber] = useState<number>(0);
     const [correct, setCorrect] = useState<number>(0);
 
@@ -31,14 +35,14 @@ const QuestionArea = () => {
   if (questionNumber<questionList.length) {
     return (        
           <div>
-            <p> hello</p>
-            {questionNumber}
-            
+            <QuestionForm question = {questionList[questionNumber]}  onAnswer = {handleAnswer}/>
+            <p>Kysymys: {questionNumber}</p>
+            <p>Oikein: {correct}</p>
             <button onClick={() => nextQuestion(setQuestionNumber, questionNumber)}>Next</button>
-            <button onClick={() => questionRight(setCorrect, correct)}>Correct</button>
-            <QuestionForm question = {questionList[questionNumber]}/>
+            
           
-        </div>)
+        </div>
+    )
   }
   return (
     <div>
@@ -51,4 +55,3 @@ const QuestionArea = () => {
 }
 
 export default QuestionArea
-//<button onClick={() => setQuestionNumber(questionNumber+1)}>Next</button>
