@@ -18,17 +18,28 @@ const QuestionForm = ({question, onAnswer} : {question : Question, onAnswer: (is
       event?.preventDefault()
       console.log(`ANswern now ${answer}`)
 
-      const result = (question.val1 + question.val2).toString() === answer
 
-      if ((question.val1 + question.val2).toString() == answer) {
-        console.log("oik3ein")
-
+      let result = false
+      if (question.operator == "+") {
+        result = (question.val1 + question.val2).toString() === answer
+      }
+      else if (question.operator == "-") {
+        result = (question.val1 - question.val2).toString() === answer
+      } 
+      else if (question.operator == "*") {
+        result = (question.val1 * question.val2).toString() === answer
+      } else {
+        result = false
+      }
+      if (result) {
+        console.log("oikein")
       } else {
         console.log("vaarin")
       }
       onAnswer(result)
       setAnswer("")
     }
+
     return (
         <div style = {{backgroundColor: "lightBlue", padding: "10px"}}>
             <QuestionComponent question= {question}/>

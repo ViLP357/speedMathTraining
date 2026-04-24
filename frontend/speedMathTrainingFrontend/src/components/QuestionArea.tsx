@@ -7,13 +7,29 @@ const nextQuestion =  (setQuestionNumber : React.Dispatch<React.SetStateAction<n
   setQuestionNumber(questionNumber + 1)
 }
 
+const operators = ["+", "-", "*"]
+
+const generateQuestion = () => {
+  console.log(operators[0])
+  console.log(operators[Math.floor(Math.random()*3)])
+  const q = {
+    val1: Math.floor(Math.random()*10),
+    val2: Math.floor(Math.random()*10),
+    operator: operators[Math.floor(Math.random()*3)],
+    ans: 2
+  }
+  return q;
+}
+
 const QuestionArea = () => {
+
   const handleAnswer = (isCorrect : boolean) => {
     if (isCorrect) {
       setCorrect(correct+1);
     }
     setQuestionNumber(questionNumber+1)
   }
+
 
     const [questionNumber, setQuestionNumber] = useState<number>(0);
     const [correct, setCorrect] = useState<number>(0);
@@ -32,6 +48,10 @@ const QuestionArea = () => {
       ans: 3
     }
   ]
+
+  questionList.push(generateQuestion());
+  console.log(questionList)
+
   if (questionNumber<questionList.length) {
     return (        
           <div>
