@@ -3,6 +3,7 @@ import { useState } from 'react'
 import React from 'react'; 
 import QuestionForm from "./QuestionForm";
 
+
 const nextQuestion =  (setQuestionNumber : React.Dispatch<React.SetStateAction<number>>, questionNumber : number) => {
   setQuestionNumber(questionNumber + 1)
 }
@@ -16,7 +17,6 @@ const generateQuestion = () => {
     val1: Math.floor(Math.random()*10),
     val2: Math.floor(Math.random()*10),
     operator: operators[Math.floor(Math.random()*3)],
-    ans: 2
   }
   return q;
 }
@@ -29,7 +29,10 @@ const QuestionArea = () => {
     }
     setQuestionNumber(questionNumber+1)
   }
-
+  const restart = () => {
+    setQuestionNumber(0)
+    setCorrect(0)
+  }
 
     const [questionNumber, setQuestionNumber] = useState<number>(0);
     const [correct, setCorrect] = useState<number>(0);
@@ -39,25 +42,26 @@ const QuestionArea = () => {
       val1: 2,
       val2: 3,
       operator: "+",
-      ans: 5
     }, 
     {
       val1: 3,
       val2: 3,
       operator: "+",
-      ans: 3
     }
   ]
 
-  questionList.push(generateQuestion());
+  for (let i = 0; i<5;i++) {
+    questionList.push(generateQuestion());
+  }
+  
   console.log(questionList)
 
   if (questionNumber<questionList.length) {
     return (        
           <div>
             <QuestionForm question = {questionList[questionNumber]}  onAnswer = {handleAnswer}/>
-            <p>Kysymys: {questionNumber}</p>
-            <p>Oikein: {correct}</p>
+            <p>Question: {questionNumber+1} / {questionList.length}</p>
+            <p>Correct: {correct}</p>
             <button onClick={() => nextQuestion(setQuestionNumber, questionNumber)}>Next</button>
             
           
@@ -66,9 +70,9 @@ const QuestionArea = () => {
   }
   return (
     <div>
-      <p>REsults</p>
-      {correct}
-
+      <p>Results</p>
+      You got {correct} questions correct
+      <button onClick={restart}>Restrt</button>
     </div>
         
   )

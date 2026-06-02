@@ -1,0 +1,18 @@
+.area {
+    color: "red";
+    background-color: #f01010;
+
+}
+
+.bigblue {
+  color: DodgerBlue;
+  padding: 40px;
+  font-family: Arial;
+  text-align: center;
+}
+
+.questionArea {
+    background-color: #b2d0fd;
+    padding: 10px;
+    font-weight: bold;
+} 
