@@ -1,4 +1,4 @@
-import type { Question } from "../types"
+import type { Question,QuestionAreaProps } from "../types"
 import { useState } from 'react'
 import React from 'react'; 
 import QuestionForm from "./QuestionForm";
@@ -8,21 +8,20 @@ const nextQuestion =  (setQuestionNumber : React.Dispatch<React.SetStateAction<n
   setQuestionNumber(questionNumber + 1)
 }
 
-const operators = ["+", "-", "*"]
-
-const generateQuestion = () => {
-  console.log(operators[0])
-  console.log(operators[Math.floor(Math.random()*3)])
+const generateQuestion = (operators : string[]) => {
   const q = {
     val1: Math.floor(Math.random()*10),
     val2: Math.floor(Math.random()*10),
-    operator: operators[Math.floor(Math.random()*3)],
+    operator: operators[Math.floor(Math.random()*operators.length)],
   }
   return q;
 }
 
-const QuestionArea = () => {
+const QuestionArea = ({acceptedOperators} : QuestionAreaProps) => {
+  console.log(`acc ${acceptedOperators}`);
 
+  const operators: string[] = []
+  //"+", "-", "*"
   const handleAnswer = (isCorrect : boolean) => {
     if (isCorrect) {
       setCorrect(correct+1);
@@ -49,12 +48,25 @@ const QuestionArea = () => {
       operator: "+",
     }
   ]
-
-  for (let i = 0; i<5;i++) {
-    questionList.push(generateQuestion());
-  }
   
-  console.log(questionList)
+  console.log(acceptedOperators)
+  if (acceptedOperators.addition === true) {
+    operators.push('+')
+  }
+    if (acceptedOperators.subtraction === true) {
+    operators.push('-')
+  }
+  if (acceptedOperators.multiplication === true) {
+    operators.push('*')
+  }
+
+  if (operators.length>0) {
+    for (let i = 0; i<5;i++) {
+      questionList.push(generateQuestion(operators));
+    }
+  }
+  console.log(operators)
+  console.log(`Questions ${questionList}`)
 
   if (questionNumber<questionList.length) {
     return (        
@@ -63,8 +75,6 @@ const QuestionArea = () => {
             <p>Question: {questionNumber+1} / {questionList.length}</p>
             <p>Correct: {correct}</p>
             <button onClick={() => nextQuestion(setQuestionNumber, questionNumber)}>Next</button>
-            
-          
         </div>
     )
   }
