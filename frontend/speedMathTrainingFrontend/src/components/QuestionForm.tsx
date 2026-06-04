@@ -31,6 +31,7 @@ const QuestionForm = ({question, onAnswer} : {question : Question, onAnswer: (is
       }
       //if (result) {
       //  console.log("oikein")
+      //  
       //} else {
       //  console.log("vaarin")
       //}
