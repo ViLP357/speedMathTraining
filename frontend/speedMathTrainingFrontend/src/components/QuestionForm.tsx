@@ -10,16 +10,13 @@ const QuestionComponent = ({question} : {question: Question}) => {
   )
 }
 
-
 const QuestionForm = ({question, onAnswer} : {question : Question, onAnswer: (isCorrect: boolean)=> void}) => {
    
     const [answer, setAnswer] = useState<string>("");
 
     const isCorrect = (event :  React.SyntheticEvent) => {
       event?.preventDefault()
-      console.log(`ANswern now ${answer}`)
-
-
+      //console.log(`ANswern now ${answer}`)
       let result = false
       if (question.operator == "+") {
         result = (question.val1 + question.val2).toString() === answer
@@ -32,11 +29,11 @@ const QuestionForm = ({question, onAnswer} : {question : Question, onAnswer: (is
       } else {
         result = false
       }
-      if (result) {
-        console.log("oikein")
-      } else {
-        console.log("vaarin")
-      }
+      //if (result) {
+      //  console.log("oikein")
+      //} else {
+      //  console.log("vaarin")
+      //}
       onAnswer(result)
       setAnswer("")
     }
@@ -46,7 +43,7 @@ const QuestionForm = ({question, onAnswer} : {question : Question, onAnswer: (is
             <QuestionComponent question= {question}/>
             <form onSubmit={isCorrect}>
               <input value={answer} onChange={(event) => setAnswer(event.target.value)}/>
-              <button type = "submit">check</button>
+              <button className={styles.basicButton} type = "submit">check</button>
             </form>
         </div>
         

@@ -18,5 +18,13 @@
 } 
 
 .results {
-    color: #f01010
+    background-color: #b2d0fd;
+    padding: 5px;
+    margin:10px;
+}
+.basicButton {
+    margin: 5px;
+    border-radius: 5px;
+    background-color: azure;
+    cursor: pointer
 }

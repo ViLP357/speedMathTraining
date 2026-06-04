@@ -20,10 +20,19 @@ const generateQuestion = (operators : Operator[]) => {
 }
 
 const QuestionArea = ({acceptedOperators, setStarted} : QuestionAreaProps) => {
-  console.log(`acc ${acceptedOperators}`);
+  //console.log(`acc ${acceptedOperators}`);
 
   const operators: Operator[] = [];
   //"+", "-", "*"
+  //console.log(acceptedOperators)
+  if (acceptedOperators.addition === true) {
+    operators.push('+')
+  } if (acceptedOperators.subtraction === true) {
+    operators.push('-')
+  } if (acceptedOperators.multiplication === true) {
+    operators.push('*')
+  }
+
   const handleAnswer = (isCorrect : boolean) => {
     if (isCorrect) {
       setCorrect(correct+1);
@@ -38,48 +47,25 @@ const QuestionArea = ({acceptedOperators, setStarted} : QuestionAreaProps) => {
 
     const [questionNumber, setQuestionNumber] = useState<number>(0);
     const [correct, setCorrect] = useState<number>(0);
-     const [seconds, setSeconds ] = useState<number>(0);
+    const [seconds, setSeconds ] = useState<number>(0);
 
-    const questionList: Question[] = [
-    {
-      val1: 2,
-      val2: 3,
-      operator: "+",
-    }, 
-    {
-      val1: 3,
-      val2: 3,
-      operator: "+",
-    }
-  ]
-  
-  console.log(acceptedOperators)
-  if (acceptedOperators.addition === true) {
-    operators.push('+')
-  }
-    if (acceptedOperators.subtraction === true) {
-    operators.push('-')
-  }
-  if (acceptedOperators.multiplication === true) {
-    operators.push('*')
-  }
-
-  if (operators.length>0) {
-    for (let i = 0; i<5;i++) {
-      questionList.push(generateQuestion(operators));
-    }
-  }
-  //console.log(operators)
-  //console.log(`Questions ${questionList}`)
+    const [questionList] = useState<Question[]>(()=> {
+      const questions: Question[] = [];
+      for (let i = 0; i<5;i++) {
+        questions.push(generateQuestion(operators))
+      }
+      return questions
+    })
 
   if (questionNumber<questionList.length) {
     return (        
           <div>
            <Timer seconds = {seconds} setSeconds = {setSeconds}/>
             <QuestionForm question = {questionList[questionNumber]}  onAnswer = {handleAnswer}/>
+            <button onClick={() => nextQuestion(setQuestionNumber, questionNumber)}>Next</button>
             <p>Question: {questionNumber+1} / {questionList.length}</p>
             <p>Correct: {correct}</p>
-            <button onClick={() => nextQuestion(setQuestionNumber, questionNumber)}>Next</button>
+            
         </div>
     )
   }
@@ -87,7 +73,7 @@ const QuestionArea = ({acceptedOperators, setStarted} : QuestionAreaProps) => {
     <div className={styles.results}>
       <p>Results</p>
       You got {correct} questions of {questionList.length} correct
-      <button onClick={restart}>Restrt</button>
+      <button className= {styles.basicButton} onClick={restart}>Restrt</button>
       <br></br>
       {Math.floor(seconds/60).toString().padStart(2, "0")}:{Math.floor(seconds%60).toString().padStart(2, "0")}
       

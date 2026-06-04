@@ -2,6 +2,7 @@ import './App.css'
 import { useState } from 'react';
 import type { OperatorsStates } from "./types"
 import QuestionArea from './components/QuestionArea';
+import styles from './mystyle.module.css'
 
 const App = () => {
   const siteName = "Mental math training";
@@ -49,7 +50,7 @@ const App = () => {
         <input type = "checkbox" name="multiplication" checked={operators.multiplication} onChange={handleOperatorChange}/>*
 
       </form>
-    {!started && <button onClick={startGame}> Start</button>}
+    {!started && <button className={styles.basicButton}onClick={startGame}> Start</button>}
     {started && <QuestionArea acceptedOperators ={operators} setStarted = {setStarted}/>}
     <p>link to <a href="https://github.com/ViLP357/speedMathTraining">Github</a> </p>
     
