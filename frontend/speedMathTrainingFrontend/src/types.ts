@@ -4,12 +4,20 @@ export interface Question {
   operator: string;
 }
 
-export type Operators = {
+export type OperatorsStates = {
   addition: boolean;
   subtraction: boolean;
   multiplication: boolean;
 };
 
 export type QuestionAreaProps = {
-  acceptedOperators: Operators;
+  acceptedOperators: OperatorsStates;
+  setStarted: React.Dispatch<React.SetStateAction<boolean>>
 };
+
+export type TimerProps = {
+  seconds: number
+  setSeconds: React.Dispatch<React.SetStateAction<number>>
+}
+
+export type Operator = "+" | "-" | "*";

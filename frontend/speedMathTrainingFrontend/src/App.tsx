@@ -1,28 +1,37 @@
 import './App.css'
 import { useState } from 'react';
-import type { Operators } from "./types"
+import type { OperatorsStates } from "./types"
 import QuestionArea from './components/QuestionArea';
 
 const App = () => {
   const siteName = "Mental math training";
-  const [operators, setOperators] = useState<Operators>({
+  const [operators, setOperators] = useState<OperatorsStates>({
     addition: false,
     subtraction: false,
     multiplication: false,
   });
+  const [started, setStarted] = useState<boolean>(false);
+ 
 
   const handleOperatorChange = (e : React.ChangeEvent<HTMLInputElement>) => {
     const {checked} = e.target
-    const operator = e.target.name as keyof Operators
+    const operator = e.target.name as keyof OperatorsStates
     setOperators(prev => ({
       ...prev,
       [operator]: checked
     }))
   }
+  const startGame = () => {
+    if (operators.addition === true || operators.subtraction === true||operators.multiplication === true) {
+    setStarted(true)
+    } else {
+      console.log("valitse ainakin yksi")
+    }
+  }
 
   return (
     <div>
-   
+      <h3>speedMath Training</h3>
       {siteName}
       <h4>Choose mode (no auto submit yet)</h4>
       <form >
@@ -40,9 +49,13 @@ const App = () => {
         <input type = "checkbox" name="multiplication" checked={operators.multiplication} onChange={handleOperatorChange}/>*
 
       </form>
+    {!started && <button onClick={startGame}> Start</button>}
+    {started && <QuestionArea acceptedOperators ={operators} setStarted = {setStarted}/>}
+    <p>link to <a href="https://github.com/ViLP357/speedMathTraining">Github</a> </p>
+    
 
-    <QuestionArea acceptedOperators ={operators}/>
     </div>
+    
   )
 }
 
