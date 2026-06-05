@@ -1,5 +1,6 @@
 import GamePage from './components/GamePage';
 import InfoPage from './components/InfoPage';
+import styles from './mystyle.module.css'
 
 import {
   BrowserRouter as Router,
@@ -13,7 +14,8 @@ const App = () => {
   }
  return (
   <Router>
-    <div>
+    <div className= {styles.navigation}>
+      speedMathTraining
       <Link style = {padding} to="/">home</Link>
       <Link  style = {padding}to="/info">info</Link>
     </div>

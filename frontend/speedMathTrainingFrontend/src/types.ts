@@ -13,6 +13,7 @@ export type OperatorsStates = {
 export type QuestionAreaProps = {
   acceptedOperators: OperatorsStates;
   setStarted: React.Dispatch<React.SetStateAction<boolean>>
+  digits: number[]
 };
 
 export type TimerProps = {

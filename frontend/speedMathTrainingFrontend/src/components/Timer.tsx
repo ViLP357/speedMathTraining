@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import type { TimerProps } from "../types";
+import style from '../mystyle.module.css'; 
 
 const Timer = ({seconds, setSeconds} : TimerProps) => {
     useEffect(() => {
@@ -13,7 +14,7 @@ const Timer = ({seconds, setSeconds} : TimerProps) => {
     const sec = seconds%60
 
     return (
-        <div>
+        <div className = {style.timer}>
             {min.toString().padStart(2, "0")}:{sec.toString().padStart(2, "0")}
         </div>
     )

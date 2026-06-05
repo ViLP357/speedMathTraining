@@ -10,16 +10,17 @@ const nextQuestion =  (setQuestionNumber : React.Dispatch<React.SetStateAction<n
   setQuestionNumber(questionNumber + 1)
 }
 
-const generateQuestion = (operators : Operator[]) => {
+const generateQuestion = (operators: Operator[], digits: number[]) => {
+  console.log("maks: " + (Math.pow(10, digits[0])))
   const q = {
-    val1: Math.floor(Math.random()*10),
-    val2: Math.floor(Math.random()*10),
+    val1: Math.floor(Math.random()*(Math.pow(10,digits[0]))*Math.pow(10, digits[1]-digits[0])),
+    val2: Math.floor(Math.random()*(Math.pow(10,digits[0]))*Math.pow(10, digits[1]-digits[0])),
     operator: operators[Math.floor(Math.random()*operators.length)],
   }
   return q;
 }
 
-const QuestionArea = ({acceptedOperators, setStarted} : QuestionAreaProps) => {
+const QuestionArea = ({acceptedOperators, setStarted, digits} : QuestionAreaProps) => {
   //console.log(`acc ${acceptedOperators}`);
 
   const operators: Operator[] = [];
@@ -45,18 +46,18 @@ const QuestionArea = ({acceptedOperators, setStarted} : QuestionAreaProps) => {
     setStarted(false)
   }
 
-    const [questionNumber, setQuestionNumber] = useState<number>(0);
-    const [correct, setCorrect] = useState<number>(0);
-    const [seconds, setSeconds ] = useState<number>(0);
+  const [questionNumber, setQuestionNumber] = useState<number>(0);
+  const [correct, setCorrect] = useState<number>(0);
+  const [seconds, setSeconds ] = useState<number>(0);
+  const [questionList] = useState<Question[]>(()=> {
+    const questions: Question[] = [];
+    for (let i = 0; i<10;i++) {
+      questions.push(generateQuestion(operators, digits))
+    }
+    return questions
+  })
 
-    const [questionList] = useState<Question[]>(()=> {
-      const questions: Question[] = [];
-      for (let i = 0; i<5;i++) {
-        questions.push(generateQuestion(operators))
-      }
-      return questions
-    })
-
+  console.log(digits)
   if (questionNumber<questionList.length) {
     return (        
           <div>
@@ -73,10 +74,13 @@ const QuestionArea = ({acceptedOperators, setStarted} : QuestionAreaProps) => {
     <div className={styles.results}>
       <p>Results</p>
       You got {correct} questions of {questionList.length} correct
-      <button className= {styles.basicButton} onClick={restart}>Restrt</button>
-      <br></br>
-      {Math.floor(seconds/60).toString().padStart(2, "0")}:{Math.floor(seconds%60).toString().padStart(2, "0")}
       
+      <br></br>
+      <div className={styles.timer}>
+      {Math.floor(seconds/60).toString().padStart(2, "0")}:{Math.floor(seconds%60).toString().padStart(2, "0")}
+      </div>
+       <br></br>
+      <button className= {styles.basicButton} onClick={restart}>Restart</button>
     </div>
         
   )
