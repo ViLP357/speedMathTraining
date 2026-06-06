@@ -10,4 +10,6 @@ A website for training mental math (coming!)
 ## How to run
 >npm install
 
-## DEveloping process
+## Developing process
+
+# Building tools

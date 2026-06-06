@@ -23,3 +23,4 @@ export type TimerProps = {
 }
 
 export type Operator = "+" | "-" | "*";
+export type submitMode = 0 | 1;

@@ -1,6 +1,6 @@
 import '../App.css'
 import { useState } from 'react';
-import type { OperatorsStates } from "../types"
+import type { OperatorsStates, submitMode } from "../types"
 import QuestionArea from '../components/QuestionArea';
 import styles from '../mystyle.module.css'
 
@@ -16,6 +16,7 @@ const GamePage = () => {
   const [errorMessage, setErrorMessage ] = useState<string>("");
   const [range, setRange] = useState<number[]>([1,1])
   const [ numberOfQuestions, setNumberOfQuestions] = useState<number>(5)
+  const [submitMode, setSubmitMode] = useState<submitMode>(0);
 
   const handleOperatorChange = (e : React.ChangeEvent<HTMLInputElement>) => {
     const {checked} = e.target
@@ -46,23 +47,31 @@ const GamePage = () => {
       } else if(event.target.id === "inpNumberOfQuestions") {
         setNumberOfQuestions(Number(event.target.value))
       }
-      //console.log("nyt: " + range)
-
+  }
+  const handleSubmitMode = (event:React.ChangeEvent<HTMLInputElement>)=> {
+    if (event.target.id === "auto_submit") {
+      setSubmitMode(0)
+    } else if (event.target.id === "no_auto_submit") {
+      setSubmitMode(1)
+    }
+  }
+  const TestStyle = {
+    color: (submitMode==1 ? "red": "blue")
   }
 
   if (!started) {
     return (
       <div>
-        <h3>{siteName}</h3>
+        <h3 style = {TestStyle}>{siteName}</h3>
       
       <div className={styles.preferencesArea}>
       
-        <h4>Choose mode (no auto submit yet)</h4>
+        <h4>Choose submit mode (no wait until correct yet)</h4>
         <form >
-          <input type = "radio" id="auto_subit" name= "gamemode" value="auto_submit"/>
-          <label>auto submit</label>
-          <input type = "radio" id="no_auto_submit" name= "gamemode" value="no_auto_submit"/>
-          <label>no auto submit</label>
+          <input type = "radio" id="auto_submit" checked= {submitMode===0}onChange={handleSubmitMode}/>
+          <label>wait until corrrect</label>
+          <input type = "radio" id="no_auto_submit" checked= {submitMode===1} onChange={handleSubmitMode}/>
+          <label>automatically move to next</label>
         </form>
 
       <h4>Operators used</h4>
@@ -77,6 +86,7 @@ const GamePage = () => {
           <br></br>
           max: <input id="maxinp" type = "range" min="1" max="5" value = {range[1]} onChange={handleChange}/>
           now: {range[0]}, {range[1]}
+        <br></br>
         Number of questions
         <br></br>
         <input id = "inpNumberOfQuestions" type = "range" min="5" max="20" step = "5" value = {numberOfQuestions} onChange={handleChange}/>

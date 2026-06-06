@@ -1,5 +1,6 @@
 import GamePage from './components/GamePage';
 import InfoPage from './components/InfoPage';
+import DailyChallenge from './components/DailyChallenge';
 import styles from './mystyle.module.css'
 
 import {
@@ -18,16 +19,16 @@ const App = () => {
       speedMathTraining
       <Link style = {padding} to="/">home</Link>
       <Link  style = {padding}to="/info">info</Link>
+      <Link  style = {padding}to="/dailychallenge">Daily Challenge</Link>
+      (dark/light)<input type="checkbox"/>
     </div>
 
     <Routes>
       <Route path="/" element={<GamePage/>}> </Route>
       <Route path="/info" element={<InfoPage/>}> </Route>
+      <Route path="/dailychallenge" element={<DailyChallenge/>}> </Route>
     </Routes>
   </Router>
-
-
- 
  )
 }
 
