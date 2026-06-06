@@ -15,6 +15,7 @@ const GamePage = () => {
   const [started, setStarted] = useState<boolean>(false);
   const [errorMessage, setErrorMessage ] = useState<string>("");
   const [range, setRange] = useState<number[]>([1,1])
+  const [ numberOfQuestions, setNumberOfQuestions] = useState<number>(5)
 
   const handleOperatorChange = (e : React.ChangeEvent<HTMLInputElement>) => {
     const {checked} = e.target
@@ -42,8 +43,10 @@ const GamePage = () => {
       } else if(event.target.id==="maxinp") {
         setRange(prev=>[prev[0], Number(event.target.value)]);
         setRange(prev=>[Math.min(prev[0], prev[1]), prev[1]]);
+      } else if(event.target.id === "inpNumberOfQuestions") {
+        setNumberOfQuestions(Number(event.target.value))
       }
-      console.log("nyt: " + range)
+      //console.log("nyt: " + range)
 
   }
 
@@ -74,8 +77,10 @@ const GamePage = () => {
           <br></br>
           max: <input id="maxinp" type = "range" min="1" max="5" value = {range[1]} onChange={handleChange}/>
           now: {range[0]}, {range[1]}
-
-
+        Number of questions
+        <br></br>
+        <input id = "inpNumberOfQuestions" type = "range" min="5" max="20" step = "5" value = {numberOfQuestions} onChange={handleChange}/>
+        n:{numberOfQuestions}
 
         </div>
         <button className={styles.basicButton}onClick={startGame}> Start</button>
@@ -86,7 +91,7 @@ const GamePage = () => {
   return (
     <div>
       <h3>{siteName}</h3>
-      <QuestionArea acceptedOperators ={operators} setStarted = {setStarted} digits = {range}/>
+      <QuestionArea acceptedOperators ={operators} setStarted = {setStarted} digits = {range} numberOfQuestions={numberOfQuestions}/>
     </div>
     
   )

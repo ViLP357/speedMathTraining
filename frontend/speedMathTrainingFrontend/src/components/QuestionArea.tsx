@@ -20,7 +20,7 @@ const generateQuestion = (operators: Operator[], digits: number[]) => {
   return q;
 }
 
-const QuestionArea = ({acceptedOperators, setStarted, digits} : QuestionAreaProps) => {
+const QuestionArea = ({acceptedOperators, setStarted, digits, numberOfQuestions} : QuestionAreaProps) => {
   //console.log(`acc ${acceptedOperators}`);
 
   const operators: Operator[] = [];
@@ -51,7 +51,7 @@ const QuestionArea = ({acceptedOperators, setStarted, digits} : QuestionAreaProp
   const [seconds, setSeconds ] = useState<number>(0);
   const [questionList] = useState<Question[]>(()=> {
     const questions: Question[] = [];
-    for (let i = 0; i<10;i++) {
+    for (let i = 0; i<numberOfQuestions;i++) {
       questions.push(generateQuestion(operators, digits))
     }
     return questions
