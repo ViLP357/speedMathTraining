@@ -12,9 +12,15 @@ const nextQuestion =  (setQuestionNumber : React.Dispatch<React.SetStateAction<n
 
 const generateQuestion = (operators: Operator[], digits: number[]) => {
   console.log("maks: " + (Math.pow(10, digits[0])))
+  console.log(Math.random()*10)
+  console.log(Math.pow(10, digits[0]-1))
+  console.log(Math.ceil(Math.pow(10, Math.random() * digits[1]-digits[0])))
   const q = {
-    val1: Math.floor(Math.random()*(Math.pow(10,digits[0]))*Math.pow(10, digits[1]-digits[0])),
-    val2: Math.floor(Math.random()*(Math.pow(10,digits[0]))*Math.pow(10, digits[1]-digits[0])),
+    //val1: Math.floor(Math.random()*(Math.pow(10,digits[0]))*Math.pow(10, digits[1]-digits[0])),
+    val1: Math.floor((Math.random()*10)*(Math.pow(10, digits[0]-1))* Math.pow(10, Math.ceil(Math.random() * digits[1]-digits[0]))),
+    
+    val2: Math.floor((Math.random()*10)*(Math.pow(10, digits[0]-1))*Math.pow(10, Math.ceil(Math.random() * digits[1]-digits[0]))),
+    
     operator: operators[Math.floor(Math.random()*operators.length)],
   }
   return q;
@@ -57,7 +63,7 @@ const QuestionArea = ({acceptedOperators, setStarted, digits, numberOfQuestions}
     return questions
   })
 
-  console.log(digits)
+  //console.log(digits)
   if (questionNumber<questionList.length) {
     return (        
           <div>
