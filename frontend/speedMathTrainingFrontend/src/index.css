@@ -1,7 +1,29 @@
-.body {
+body {
     background-color: #dadada;
-    color: rgb(22, 22, 22);
-    padding: 40px;
+    color: rgb(19, 17, 17);
+    padding: 1px;
     font-family: Arial;
     text-align: center;
+}
+
+body.light {
+  background-color: #f7f3f4;
+  color: #2b2d42;
+  --text-color: #2b2d42;
+  --card-bg: #c7a8a8;
+  --blue: #6ac3dc;
+  --lime-green: #e1fc88;
+  --orange: #f89c3a;
+  --shadow-color: rgba(0, 0, 0, 0.15);
+}
+
+body.dark {
+  background-color: #2b2d42;
+  color: #f7f3f4;
+  --text-color: #f7f3f4;
+  --card-bg: #222222;
+  --blue: #39b1d1;
+  --lime-green: #d6fb61;
+   --orange: #f6850C;
+   --shadow-color: rgba(255, 255, 255, 0.15);
 }

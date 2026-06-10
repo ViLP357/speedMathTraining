@@ -57,11 +57,12 @@ const GamePage = () => {
   }
   const TestStyle = {
     color: (submitMode==1 ? "red": "blue")
+    
   }
 
   if (!started) {
     return (
-      <div>
+      <div >
         <h3 style = {TestStyle}>{siteName}</h3>
       
       <div className={styles.preferencesArea}>
@@ -93,7 +94,7 @@ const GamePage = () => {
         n:{numberOfQuestions}
 
         </div>
-        <button className={styles.basicButton}onClick={startGame}> Start</button>
+        <button className={styles.startButton}onClick={startGame}> Start</button>
         <p>{errorMessage}</p>
       </div>
     )

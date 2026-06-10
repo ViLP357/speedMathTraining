@@ -10,14 +10,9 @@ const nextQuestion =  (setQuestionNumber : React.Dispatch<React.SetStateAction<n
   setQuestionNumber(questionNumber + 1)
 }
 const randomNumber = (dec: number) => {
-  //console.log("dec" + dec)
   let num = Math.random()*8.5+1;
-  //console.log("gener" + num)
   num = Number(num.toFixed(dec-1))
-  //console.log("round " + num)
-  //num = Math.floor(num)
   num = num * Math.pow(10, dec-1)
-  //console.log("done " + num)
   return Math.floor(num)
 }
 
@@ -100,3 +95,4 @@ const QuestionArea = ({acceptedOperators, setStarted, digits, numberOfQuestions}
 
 export default QuestionArea
  //
+  //
