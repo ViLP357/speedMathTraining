@@ -9,18 +9,24 @@ import styles from '../mystyle.module.css';
 const nextQuestion =  (setQuestionNumber : React.Dispatch<React.SetStateAction<number>>, questionNumber : number) => {
   setQuestionNumber(questionNumber + 1)
 }
+const randomNumber = (dec: number) => {
+  //console.log("dec" + dec)
+  let num = Math.random()*8.5+1;
+  //console.log("gener" + num)
+  num = Number(num.toFixed(dec-1))
+  //console.log("round " + num)
+  //num = Math.floor(num)
+  num = num * Math.pow(10, dec-1)
+  //console.log("done " + num)
+  return Math.floor(num)
+}
 
 const generateQuestion = (operators: Operator[], digits: number[]) => {
-  console.log("maks: " + (Math.pow(10, digits[0])))
-  console.log(Math.random()*10)
-  console.log(Math.pow(10, digits[0]-1))
-  console.log(Math.ceil(Math.pow(10, Math.random() * digits[1]-digits[0])))
+  //Math.floor(Math.random()*(Math.pow(10,digits[0]))*Math.pow(10, digits[1]-digits[0])),
+  //Math.floor((Math.random()*10)*(Math.pow(10, digits[0]-1))*Math.pow(10, Math.ceil(Math.random() * digits[1]-digits[0]))),
   const q = {
-    //val1: Math.floor(Math.random()*(Math.pow(10,digits[0]))*Math.pow(10, digits[1]-digits[0])),
-    val1: Math.floor((Math.random()*10)*(Math.pow(10, digits[0]-1))* Math.pow(10, Math.ceil(Math.random() * digits[1]-digits[0]))),
-    
-    val2: Math.floor((Math.random()*10)*(Math.pow(10, digits[0]-1))*Math.pow(10, Math.ceil(Math.random() * digits[1]-digits[0]))),
-    
+    val1: randomNumber(Math.round(Math.random() * (digits[1]-digits[0])) + digits[0]),
+    val2: randomNumber(Math.round(Math.random() * (digits[1]-digits[0])) + digits[0]),
     operator: operators[Math.floor(Math.random()*operators.length)],
   }
   return q;
