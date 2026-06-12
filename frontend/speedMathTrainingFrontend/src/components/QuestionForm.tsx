@@ -40,10 +40,10 @@ const QuestionForm = ({question, onAnswer} : {question : Question, onAnswer: (is
     }
 
     return (
-        <div className= {styles.questionArea}>
+        <div >
             <QuestionComponent question= {question}/>
             <form onSubmit={isCorrect}>
-              <input value={answer} onChange={(event) => setAnswer(event.target.value)}/>
+              <input className={styles.textInput} value={answer} onChange={(event) => setAnswer(event.target.value)}/>
               <button className={styles.basicButton} type = "submit">check</button>
             </form>
         </div>

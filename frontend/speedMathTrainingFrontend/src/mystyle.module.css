@@ -1,32 +1,48 @@
-
-.bigblue {
-  color: DodgerBlue;
-  padding: 40px;
-  font-family: Arial;
-  text-align: center;
-}
-
 .questionArea {
-    background-color: #b2d0fd;
+    background-color: var(--base-blue);
     padding: 10px;
-    font-weight: bold;
-} 
+    margin: 5px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 var(--shadow-color), 0 6px 20px 0 var(--shadow-color);
+    width: 80%;
+    align-content: center;
+    flex-wrap: wrap;
+    margin-left: 10%;
 
+} 
+.preferencesArea {
+    background-color: var(--base-blue);
+    padding: 10px;
+    margin: 5px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 var(--shadow-color), 0 6px 20px 0 var(--shadow-color);
+    width: 80%;
+    align-content: center;
+    flex-wrap: wrap;
+    margin-left: 10%;
+}
 .results {
-    background-color: #b2d0fd;
-    padding: 5px;
-    margin:10px;
+    background-color: var(--base-blue);
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 var(--shadow-color), 0 6px 20px 0 var(--shadow-color);
+    width: 80%;
+    align-content: center;
+    flex-wrap: wrap;
+    margin-left: 10%;
 }
 button {
-  padding: 12.5px 30px;
+  padding: 10px 25px;
   border: 0;
-  border-radius: 100px;
-  background-color: var(--blue);
-  color: var(--text-color);
+  border-radius: 10px;
+  background-color: var(--violet);
+  color: #f7f3f4;
   font-weight: Bold;
   transition: all 0.5s;
   -webkit-transition: all 0.5s;
  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+
 }
 .link {
     padding: 5px;
@@ -38,7 +54,17 @@ button {
   box-shadow: 0 0 20px #6fc5ff50;
   transform: scale(1.1);
 }
-
+.startButton {
+  padding: 12.5px 30px;
+  border: 0;
+  border-radius: 100px;
+  background-color: var(--violet);
+  color: #f7f3f4;
+  font-weight: Bold;
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+ text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
 .startButton:active {
   background-color: #3d94cf;
   transition: all 0.25s;
@@ -48,8 +74,9 @@ button {
 }
 
 .navigation {
-    background-color: var(--blue);
+    background-color: var(--base-blue);
     padding: 10px;
+   
 
 }
 .timer {
@@ -61,13 +88,49 @@ button {
     margin: 4px;
     border-radius: 20px;
     width: fit-content;
-}
-.preferencesArea {
-    background-color: var(--orange);
-    padding: 10px;
-    margin: 5px;
-    border-radius: 10px;
-    box-shadow: 5px 3px 3px var(--shadow-color);
-     box-shadow: 0 4px 8px 0 var(--shadow-color), 0 6px 20px 0 var(--shadow-color);
+
 }
 
+.slider {
+  -webkit-appearance: none;  /* Override default CSS styles */
+  appearance: none;
+ background-color: var(--violet);
+  height: 10px;
+  border-radius: 5px;
+
+  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
+}
+
+/* Mouse-over effects */
+.slider:hover {
+  opacity: 1; /* Fully shown on mouse-over */
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 20px; /* Set a specific slider handle width */
+  height: 20px; /* Slider handle height */
+  background: #8d30bf; /* Green background */
+  border-radius: 10px;
+  cursor: pointer; /* Cursor on hover */
+}
+
+.slider::-moz-range-thumb {
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: #04AA6D; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+
+.textInput{
+
+  color: red;
+  padding: 10px;
+  margin: 20px;
+  border-radius: 10px;
+  border-width: 5px;
+  border-color: var(--violet);
+}

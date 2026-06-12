@@ -67,7 +67,7 @@ const QuestionArea = ({acceptedOperators, setStarted, digits, numberOfQuestions}
   //console.log(digits)
   if (questionNumber<questionList.length) {
     return (        
-          <div>
+          <div className= {styles.questionArea}>
            <Timer seconds = {seconds} setSeconds = {setSeconds}/>
             <QuestionForm question = {questionList[questionNumber]}  onAnswer = {handleAnswer}/>
             <button onClick={() => nextQuestion(setQuestionNumber, questionNumber)}>Next</button>

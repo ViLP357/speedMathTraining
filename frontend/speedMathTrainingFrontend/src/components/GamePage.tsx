@@ -83,7 +83,7 @@ const GamePage = () => {
         </form>
         Number of digits
         <br></br>
-          min: <input id="mininp" type = "range" min="1" max="5" value = {range[0]} onChange={handleChange}/>
+          min: <input className={styles.slider} id="mininp" type = "range" min="1" max="5" value = {range[0]} onChange={handleChange}/>
           <br></br>
           max: <input id="maxinp" type = "range" min="1" max="5" value = {range[1]} onChange={handleChange}/>
           now: {range[0]}, {range[1]}

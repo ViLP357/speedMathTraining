@@ -18,22 +18,21 @@ const App = () => {
     document.body.className = theme
   }, [theme])
  return (
+      <Router>
+        <div className= {styles.navigation}>
+          speedMathTraining
+          <Link className= {styles.link} to="/">home</Link>
+          <Link className = {styles.link} to="/info">info</Link>
+          <Link className = {styles.link}to="/dailychallenge">Daily Challenge</Link>
+          (dark/light)<input type="checkbox" onClick={() => {setTheme((prev) => (prev === 'light' ? 'dark' : 'light'))}}/>
+        </div>
 
-    <Router>
-      <div className= {styles.navigation}>
-        speedMathTraining
-        <Link className= {styles.link} to="/">home</Link>
-        <Link className = {styles.link} to="/info">info</Link>
-        <Link className = {styles.link}to="/dailychallenge">Daily Challenge</Link>
-        (dark/light)<input type="checkbox" onClick={() => {setTheme((prev) => (prev === 'light' ? 'dark' : 'light'))}}/>
-      </div>
-
-      <Routes>
-        <Route path="/" element={<GamePage/>}> </Route>
-        <Route path="/info" element={<InfoPage/>}> </Route>
-        <Route path="/dailychallenge" element={<DailyChallenge/>}> </Route>
-      </Routes>
-    </Router>
+        <Routes>
+          <Route path="/" element={<GamePage/>}> </Route>
+          <Route path="/info" element={<InfoPage/>}> </Route>
+          <Route path="/dailychallenge" element={<DailyChallenge/>}> </Route>
+        </Routes>
+      </Router>
  )
 }
 
