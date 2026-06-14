@@ -55,15 +55,12 @@ const GamePage = () => {
       setSubmitMode(1)
     }
   }
-  const TestStyle = {
-    color: (submitMode==1 ? "red": "blue")
-    
-  }
+
 
   if (!started) {
     return (
       <div >
-        <h3 style = {TestStyle}>{siteName}</h3>
+        <h3 className={styles.header}>{siteName}</h3>
       
       <div className={styles.preferencesArea}>
       
@@ -77,20 +74,20 @@ const GamePage = () => {
 
       <h4>Operators used</h4>
         <form>    
-          <input type = "checkbox" name = "addition" checked={operators.addition} onChange={handleOperatorChange}/>+
-          <input type = "checkbox" name="subtraction" checked={operators.subtraction} onChange={handleOperatorChange}/>-
-          <input type = "checkbox" name="multiplication" checked={operators.multiplication} onChange={handleOperatorChange}/>*
+          <input className={styles.checkbox} type = "checkbox" name = "addition" checked={operators.addition} onChange={handleOperatorChange}/>+
+          <input className={styles.checkbox} type = "checkbox" name="subtraction" checked={operators.subtraction} onChange={handleOperatorChange}/>-
+          <input className={styles.checkbox} type = "checkbox" name="multiplication" checked={operators.multiplication} onChange={handleOperatorChange}/>*
         </form>
         Number of digits
         <br></br>
           min: <input className={styles.slider} id="mininp" type = "range" min="1" max="5" value = {range[0]} onChange={handleChange}/>
           <br></br>
-          max: <input id="maxinp" type = "range" min="1" max="5" value = {range[1]} onChange={handleChange}/>
+          max: <input className={styles.slider} id="maxinp" type = "range" min="1" max="5" value = {range[1]} onChange={handleChange}/>
           now: {range[0]}, {range[1]}
         <br></br>
         Number of questions
         <br></br>
-        <input id = "inpNumberOfQuestions" type = "range" min="5" max="20" step = "5" value = {numberOfQuestions} onChange={handleChange}/>
+        <input className={styles.slider} id = "inpNumberOfQuestions" type = "range" min="5" max="20" step = "5" value = {numberOfQuestions} onChange={handleChange}/>
         n:{numberOfQuestions}
 
         </div>

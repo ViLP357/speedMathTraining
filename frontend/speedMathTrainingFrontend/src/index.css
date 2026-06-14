@@ -4,7 +4,7 @@ body {
     font-family: Arial;
     text-align: center;
     --violet: #B757EB;
-    
+    font-family: 'Noto sans', sans-serif;
     justify-content: center; /* Centers horizontally */
     align-items: center; 
 
@@ -12,22 +12,20 @@ body {
 }
 
 body.light {
-  background-color: #d8d8d8;
+  background-color: #dddddd;
   color: #0F1117;
   --text-color: #0F1117;
+  --secondary-text: #303957;
   --base-blue: #2596fc;
-  
-
   --shadow-color: rgba(0, 0, 0, 0.15);
-
 }
 
 body.dark {
   background-color: #3c3c3c;
   color: #FAFAFA;
   --text-color: #FAFAFA;
-  --base-blue: #1d6ba7;
-  --shadow-color: rgba(190, 190, 190, 0.1);
-
-   
+  --secondary-text: #cfcfcf;
+  --base-blue: #227BBF;
+  --shadow-color: rgba(190, 190, 190, 0.1);   
 }
+
