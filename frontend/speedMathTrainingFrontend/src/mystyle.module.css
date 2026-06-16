@@ -9,6 +9,9 @@
     flex-wrap: wrap;
     margin-left: 10%;
 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 } 
 .preferencesArea {
     background-color: var(--base-blue);
@@ -28,9 +31,18 @@
     border-radius: 10px;
     box-shadow: 0 4px 8px 0 var(--shadow-color), 0 6px 20px 0 var(--shadow-color);
     width: 80%;
-    align-content: center;
-    flex-wrap: wrap;
     margin-left: 10%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.questionForm {
+  background-color: var(--bg);
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px 0 var(--shadow-color), 0 6px 20px 0 var(--shadow-color);
 }
 .header {
   color: var(--text-color);
@@ -49,11 +61,21 @@ button {
   transition: all 0.5s;
   -webkit-transition: all 0.5s;
  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-
+}
+button:hover{
+  transform: scale(1.05);
+}
+button:active{
+  background-color: #8d30bf;
 }
 .link {
     padding: 5px;
     color: var(--secondary-text);
+    opacity: 0.9;
+}
+.link:hover {
+  opacity: 1;
+  transform: scale(1.02);
 }
 
 .startButton:hover {
@@ -97,10 +119,10 @@ button {
     border-style: solid;
     border-width: 2px;
     padding: 10px;
-    margin: 4px;
+    margin:4px;
+  
     border-radius: 20px;
     width: fit-content;
-
 }
 
 .slider {
@@ -162,6 +184,7 @@ button {
   opacity: 0.8;
   outline: none;
   transition: outline 0.1s;
+  border-radius: 4px;
 }
 
 .checkbox:checked { /*tausta kun checkedd*/
@@ -216,3 +239,25 @@ button {
 }
 
 /*dark/light mode*/
+.radio {
+  box-sizing: border-box;
+  width: 20px;
+  height: 20px;
+  margin: 6px;
+  border-radius: 20px;
+  
+  padding: 0;
+  border: 2px solid #8d30bf;
+  appearance: none;
+  background-color: var(--violet);
+  
+}
+.radio:checked {
+  padding: 0;
+  border: 7px solid #8d30bf;
+  appearance: none;
+ 
+ 
+
+
+}

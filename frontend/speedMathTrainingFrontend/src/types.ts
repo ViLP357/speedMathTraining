@@ -15,6 +15,7 @@ export type QuestionAreaProps = {
   setStarted: React.Dispatch<React.SetStateAction<boolean>>
   digits: number[]
   numberOfQuestions: number
+  submitMode: 0 | 1
 };
 
 export type TimerProps = {

@@ -7,7 +7,7 @@ const DailyChallenge = ()=> {
             <p>2-3 digits</p>
             <p>10 questions</p>
             <p>operators: +, -</p>
-            click to apply these settings
+            <p>click to apply these settings</p>
             <button>Apply </button>
         </div>
     )

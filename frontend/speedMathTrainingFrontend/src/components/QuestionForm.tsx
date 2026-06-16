@@ -13,7 +13,7 @@ const QuestionComponent = ({question} : {question: Question}) => {
 const QuestionForm = ({question, onAnswer} : {question : Question, onAnswer: (isCorrect: boolean)=> void}) => {
    
     const [answer, setAnswer] = useState<string>("");
-
+    const [shadowColor, setShadowColor] = useState<string>("");
     const isCorrect = (event :  React.SyntheticEvent) => {
       event?.preventDefault()
       //console.log(`ANswern now ${answer}`)
@@ -29,21 +29,21 @@ const QuestionForm = ({question, onAnswer} : {question : Question, onAnswer: (is
       } else {
         result = false
       }
-      //if (result) {
-      //  console.log("oikein")
-      //  
-      //} else {
-      //  console.log("vaarin")
-      //}
       onAnswer(result)
       setAnswer("")
+      if (result) {
+        setShadowColor("green")
+      } else {
+        setShadowColor("red")
+      }
+      setTimeout(() => setShadowColor(""), 200)
     }
 
     return (
-        <div >
+        <div className={styles.questionForm}>
             <QuestionComponent question= {question}/>
             <form onSubmit={isCorrect}>
-              <input className={styles.textInput} value={answer} onChange={(event) => setAnswer(event.target.value)}/>
+              <input className={styles.textInput} style={{ boxShadow: `0px 4px 8px ${shadowColor}`}} value={answer} onChange={(event) => setAnswer(event.target.value)}/>
               <button className={styles.basicButton} type = "submit">check</button>
             </form>
         </div>

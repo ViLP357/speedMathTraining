@@ -17,7 +17,7 @@ const App = () => {
   useEffect(() => {
     document.body.className = theme
   }, [theme])
- return (
+ return ( //use zustand
       <Router>
         <div className= {styles.navigation}>
           speedMathTraining

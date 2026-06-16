@@ -27,7 +27,7 @@ const generateQuestion = (operators: Operator[], digits: number[]) => {
   return q;
 }
 
-const QuestionArea = ({acceptedOperators, setStarted, digits, numberOfQuestions} : QuestionAreaProps) => {
+const QuestionArea = ({acceptedOperators, setStarted, digits, numberOfQuestions, submitMode} : QuestionAreaProps) => {
   //console.log(`acc ${acceptedOperators}`);
 
   const operators: Operator[] = [];
@@ -44,8 +44,11 @@ const QuestionArea = ({acceptedOperators, setStarted, digits, numberOfQuestions}
   const handleAnswer = (isCorrect : boolean) => {
     if (isCorrect) {
       setCorrect(correct+1);
+      setQuestionNumber(questionNumber+1)
     }
-    setQuestionNumber(questionNumber+1)
+    if (submitMode===1) {
+      setQuestionNumber(questionNumber+1)
+    }
   }
   const restart = () => {
     setQuestionNumber(0)
@@ -84,7 +87,7 @@ const QuestionArea = ({acceptedOperators, setStarted, digits, numberOfQuestions}
       
       <br></br>
       <div className={styles.timer}>
-      {Math.floor(seconds/60).toString().padStart(2, "0")}:{Math.floor(seconds%60).toString().padStart(2, "0")}
+        {Math.floor(seconds/60).toString().padStart(2, "0")}:{Math.floor(seconds%60).toString().padStart(2, "0")}
       </div>
        <br></br>
       <button className= {styles.basicButton} onClick={restart}>Restart</button>

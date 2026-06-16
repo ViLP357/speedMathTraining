@@ -66,10 +66,13 @@ const GamePage = () => {
       
         <h4>Choose submit mode (no wait until correct yet)</h4>
         <form >
-          <input type = "radio" id="auto_submit" checked= {submitMode===0}onChange={handleSubmitMode}/>
-          <label>wait until corrrect</label>
-          <input type = "radio" id="no_auto_submit" checked= {submitMode===1} onChange={handleSubmitMode}/>
-          <label>automatically move to next</label>
+          <label>
+            <input className={styles.radio} type = "radio" id="auto_submit" checked= {submitMode===0}onChange={handleSubmitMode}/>
+          wait until corrrect</label>
+          
+          <label>
+            <input className={styles.radio} type = "radio" id="no_auto_submit" checked= {submitMode===1} onChange={handleSubmitMode}/>
+          automatically move to next</label>
         </form>
 
       <h4>Operators used</h4>
@@ -78,17 +81,16 @@ const GamePage = () => {
           <input className={styles.checkbox} type = "checkbox" name="subtraction" checked={operators.subtraction} onChange={handleOperatorChange}/>-
           <input className={styles.checkbox} type = "checkbox" name="multiplication" checked={operators.multiplication} onChange={handleOperatorChange}/>*
         </form>
-        Number of digits
+        Number of digits [{range[0]} - {range[1]}]
         <br></br>
           min: <input className={styles.slider} id="mininp" type = "range" min="1" max="5" value = {range[0]} onChange={handleChange}/>
           <br></br>
           max: <input className={styles.slider} id="maxinp" type = "range" min="1" max="5" value = {range[1]} onChange={handleChange}/>
-          now: {range[0]}, {range[1]}
         <br></br>
-        Number of questions
+        Number of questions: {numberOfQuestions}
         <br></br>
         <input className={styles.slider} id = "inpNumberOfQuestions" type = "range" min="5" max="20" step = "5" value = {numberOfQuestions} onChange={handleChange}/>
-        n:{numberOfQuestions}
+        
 
         </div>
         <button className={styles.startButton}onClick={startGame}> Start</button>
@@ -99,7 +101,7 @@ const GamePage = () => {
   return (
     <div>
       <h3>{siteName}</h3>
-      <QuestionArea acceptedOperators ={operators} setStarted = {setStarted} digits = {range} numberOfQuestions={numberOfQuestions}/>
+      <QuestionArea acceptedOperators ={operators} setStarted = {setStarted} digits = {range} numberOfQuestions={numberOfQuestions} submitMode = {submitMode}/>
     </div>
     
   )
