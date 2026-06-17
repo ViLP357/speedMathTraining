@@ -4,11 +4,20 @@ import { useSettingsStore } from '../store.js'
 const DailyChallenge = ()=> {
     const apply = () => {
         changeQuestions(10)
+        changeDigits([2, 3])
+        changeUsedOperators({    
+            addition: true,
+            subtraction: true,
+            multiplication: false
+        })
     }
-    const { questions, changeQuestions } = useSettingsStore()
+    const { questions, changeQuestions, digits, changeDigits, usedOperators, changeUsedOperators } = useSettingsStore()
+    console.log(usedOperators)
     return (
         <div>
-            q:{questions}
+            q:{questions},
+            {digits[0]}, {digits[1]}
+            
            <h3 className={styles.header}>Todays challenge</h3>
             <p>2-3 digits</p>
             <p>10 questions</p>

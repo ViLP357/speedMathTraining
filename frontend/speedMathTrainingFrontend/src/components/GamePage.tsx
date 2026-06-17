@@ -7,21 +7,14 @@ import { useSettingsStore } from '../store.js'
 
 const GamePage = () => { 
   const siteName = "speedMath Training";
-  const { questions, changeQuestions } = useSettingsStore()
+  const { questions, changeQuestions, digits, changeDigits, usedOperators, changeUsedOperators } = useSettingsStore()
 
-  const [operators, setOperators] = useState<OperatorsStates>({
-    addition: false,
-    subtraction: false,
-    multiplication: false,
-  });
+  const [operators, setOperators] = useState<OperatorsStates>(usedOperators);
   const [started, setStarted] = useState<boolean>(false);
   const [errorMessage, setErrorMessage ] = useState<string>("");
-  const [range, setRange] = useState<number[]>([1,1])
+  const [range, setRange] = useState<number[]>(digits)
   const [ numberOfQuestions, setNumberOfQuestions] = useState<number>(questions)
   const [submitMode, setSubmitMode] = useState<submitMode>(0);
-
-
-  
 
   const handleOperatorChange = (e : React.ChangeEvent<HTMLInputElement>) => {
 
@@ -31,6 +24,7 @@ const GamePage = () => {
       ...prev,
       [operator]: checked
     }))
+    changeUsedOperators(operators)
   }
   const startGame = () => {
     if (operators.addition === true || operators.subtraction === true||operators.multiplication === true) {
@@ -50,9 +44,10 @@ const GamePage = () => {
       } else if(event.target.id==="maxinp") {
         setRange(prev=>[prev[0], Number(event.target.value)]);
         setRange(prev=>[Math.min(prev[0], prev[1]), prev[1]]);
+        changeDigits(range) //flux/zustand-store
       } else if(event.target.id === "inpNumberOfQuestions") {
         setNumberOfQuestions(Number(event.target.value))
-        changeQuestions(Number(event.target.value))
+        changeQuestions(numberOfQuestions)
       }
   }
   const handleSubmitMode = (event:React.ChangeEvent<HTMLInputElement>)=> {
@@ -88,14 +83,14 @@ const GamePage = () => {
           <input className={styles.checkbox} type = "checkbox" name="subtraction" checked={operators.subtraction} onChange={handleOperatorChange}/>-
           <input className={styles.checkbox} type = "checkbox" name="multiplication" checked={operators.multiplication} onChange={handleOperatorChange}/>*
         </form>
-        Number of digits [{range[0]} - {range[1]}]
-        <br></br>
+       <h4> Number of digits [{range[0]} - {range[1]}]</h4>
+  
           min: <input className={styles.slider} id="mininp" type = "range" min="1" max="5" value = {range[0]} onChange={handleChange}/>
           <br></br>
           max: <input className={styles.slider} id="maxinp" type = "range" min="1" max="5" value = {range[1]} onChange={handleChange}/>
         <br></br>
-        Number of questions: {numberOfQuestions}
-        <br></br>
+        <h4>Number of questions: {numberOfQuestions}</h4>
+        
         <input className={styles.slider} id = "inpNumberOfQuestions" type = "range" min="5" max="20" step = "5" value = {numberOfQuestions} onChange={handleChange}/>
         p: {questions}
 

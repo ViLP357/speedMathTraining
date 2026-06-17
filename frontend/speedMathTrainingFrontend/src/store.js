@@ -2,8 +2,15 @@ import { create } from 'zustand'
 
 export const useSettingsStore = create(set => ({
   questions: 5,
+  digits: [1, 1], 
+  usedOperators: {
+    addition: false,
+    subtraction: false,
+    multiplication: false,
+  },
   changeQuestions: value => set(state => ({questions: value })),
-  decrement: () => set(state => ({ counter: state.counter - 1 })),
+  changeDigits: value => set(state => ({digits: value})),
+  changeUsedOperators: value=>set(state => ({usedOperators: value}))
 }))
 
-//export const useSettings = () => useSettingsStore(state => state.questions)
+//export const useSettingsControls = () => useSettingsStore(state => state.actions)
