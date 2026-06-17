@@ -107,6 +107,7 @@ button:active{
     background-color: var(--base-blue);
     padding: 10px;
     height: 50px;
+    
     display: flex;
     align-items: center;
     justify-content: center;

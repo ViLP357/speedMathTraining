@@ -3,7 +3,7 @@ import { useState } from 'react';
 import type { OperatorsStates, submitMode } from "../types"
 import QuestionArea from '../components/QuestionArea';
 import styles from '../mystyle.module.css'
-import { useSettingsStore } from '../store.js'
+import useSettingsStore from '../store.ts'
 
 const GamePage = () => { 
   const siteName = "speedMath Training";
@@ -92,7 +92,6 @@ const GamePage = () => {
         <h4>Number of questions: {numberOfQuestions}</h4>
         
         <input className={styles.slider} id = "inpNumberOfQuestions" type = "range" min="5" max="20" step = "5" value = {numberOfQuestions} onChange={handleChange}/>
-        p: {questions}
 
         </div>
         <button className={styles.startButton}onClick={startGame}> Start</button>

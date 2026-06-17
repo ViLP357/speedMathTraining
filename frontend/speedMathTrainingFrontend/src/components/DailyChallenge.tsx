@@ -1,5 +1,5 @@
 import styles from '../mystyle.module.css'
-import { useSettingsStore } from '../store.js'
+import useSettingsStore from '../store.ts'
 
 const DailyChallenge = ()=> {
     const apply = () => {
@@ -11,13 +11,10 @@ const DailyChallenge = ()=> {
             multiplication: false
         })
     }
-    const { questions, changeQuestions, digits, changeDigits, usedOperators, changeUsedOperators } = useSettingsStore()
-    console.log(usedOperators)
+    const {changeQuestions, changeDigits, changeUsedOperators } = useSettingsStore()
+   
     return (
         <div>
-            q:{questions},
-            {digits[0]}, {digits[1]}
-            
            <h3 className={styles.header}>Todays challenge</h3>
             <p>2-3 digits</p>
             <p>10 questions</p>
