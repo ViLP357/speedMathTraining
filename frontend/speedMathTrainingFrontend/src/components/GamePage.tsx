@@ -3,10 +3,12 @@ import { useState } from 'react';
 import type { OperatorsStates, submitMode } from "../types"
 import QuestionArea from '../components/QuestionArea';
 import styles from '../mystyle.module.css'
+import { useSettingsStore } from '../store.js'
 
 const GamePage = () => { 
-  
   const siteName = "speedMath Training";
+  const { questions, changeQuestions } = useSettingsStore()
+
   const [operators, setOperators] = useState<OperatorsStates>({
     addition: false,
     subtraction: false,
@@ -15,10 +17,14 @@ const GamePage = () => {
   const [started, setStarted] = useState<boolean>(false);
   const [errorMessage, setErrorMessage ] = useState<string>("");
   const [range, setRange] = useState<number[]>([1,1])
-  const [ numberOfQuestions, setNumberOfQuestions] = useState<number>(5)
+  const [ numberOfQuestions, setNumberOfQuestions] = useState<number>(questions)
   const [submitMode, setSubmitMode] = useState<submitMode>(0);
 
+
+  
+
   const handleOperatorChange = (e : React.ChangeEvent<HTMLInputElement>) => {
+
     const {checked} = e.target
     const operator = e.target.name as keyof OperatorsStates
     setOperators(prev => ({
@@ -46,6 +52,7 @@ const GamePage = () => {
         setRange(prev=>[Math.min(prev[0], prev[1]), prev[1]]);
       } else if(event.target.id === "inpNumberOfQuestions") {
         setNumberOfQuestions(Number(event.target.value))
+        changeQuestions(Number(event.target.value))
       }
   }
   const handleSubmitMode = (event:React.ChangeEvent<HTMLInputElement>)=> {
@@ -90,7 +97,7 @@ const GamePage = () => {
         Number of questions: {numberOfQuestions}
         <br></br>
         <input className={styles.slider} id = "inpNumberOfQuestions" type = "range" min="5" max="20" step = "5" value = {numberOfQuestions} onChange={handleChange}/>
-        
+        p: {questions}
 
         </div>
         <button className={styles.startButton}onClick={startGame}> Start</button>

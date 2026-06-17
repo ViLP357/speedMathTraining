@@ -17,7 +17,7 @@ const App = () => {
   useEffect(() => {
     document.body.className = theme
   }, [theme])
- return ( //use zustand
+ return ( //use zustand, https://fullstackopen.com/osa6/flux_arkkitehtuuri_ja_zustand
       <Router>
         <div className= {styles.navigation}>
           speedMathTraining
