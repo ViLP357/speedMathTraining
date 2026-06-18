@@ -214,6 +214,7 @@ button:active{
   position: relative;
   transition: background 0.3s ease;
   margin-left: auto;
+   flex-shrink: 0;
 }
 
 .darkLightSwitch::before {
