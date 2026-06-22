@@ -13,25 +13,31 @@ Clone repository:
 git clone https://github.com/ViLP357/speedMathTraining.git
 ```
 Install depencies:
-```bash
+```
 npm install 
 ```
 
 In main folder speedMathTraining go to...
-``` bash
+``` 
 /frontend/speedMathTrainingFrontend
 
 ```
+
 and
+
 ```
 npm run dev
 ```
-``` bash
+
+or
+
+``` 
 npm run build
 npm run preview
 ```
 
 ## Developing process
+![first](./readmePictures/beginProject.png)
 
 ## Technologies
 ### Frontend
