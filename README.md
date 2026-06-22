@@ -8,8 +8,18 @@ A website for training mental math (coming!)
 * Link here
 
 ## How to run
->npm install
+In main folder speedMathTraining go to...
+> /frontend/speedMathTrainingFrontend
+and
+>npm run dev
+or 
+>npm run preview
+
 
 ## Developing process
 
-# Building tools
+## Building tools
+- Typescript
+- React
+- Vite
+- Node.js
