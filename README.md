@@ -8,18 +8,32 @@ A website for training mental math (coming!)
 * Link here
 
 ## How to run
+Clone repository:
+```bash
+git clone https://github.com/ViLP357/speedMathTraining.git
+```
+Install depencies:
+> npm install
+
 In main folder speedMathTraining go to...
 > /frontend/speedMathTrainingFrontend
+
 and
->npm run dev
+
+> npm run dev
+
 or 
->npm run preview
+> nom run build
+> npm run preview
 
 
 ## Developing process
 
-## Building tools
+## Technologies
+### Frontend
 - Typescript
 - React
+### Building-tools
 - Vite
+### Developing environment
 - Node.js
