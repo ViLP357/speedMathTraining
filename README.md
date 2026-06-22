@@ -4,10 +4,10 @@ A website for training mental math (coming!)
 
 ## ℹ️ Overview
 
-## Try It!
+## Try It! ▶️
 * Link here
 
-## How to run
+## How to run 🏃
 Clone repository:
 ```bash
 git clone https://github.com/ViLP357/speedMathTraining.git
@@ -36,10 +36,12 @@ npm run build
 npm run preview
 ```
 
-## Developing process
+## Developing process 💻
+This is how the website looked in the beginning of Stardance
 ![first](./readmePictures/beginProject.png)
+There was only that simple question form and some hard-coded questions that I had managed to do in less than 5hr beside configuring everything.
 
-## Technologies
+## Technologies 🔧 
 ### Frontend
 - Typescript
 - React
@@ -47,3 +49,5 @@ npm run preview
 - Vite
 ### Developing environment
 - Node.js
+### Drawing
+- paint.net
