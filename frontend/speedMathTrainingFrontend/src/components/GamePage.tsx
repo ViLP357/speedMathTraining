@@ -4,7 +4,7 @@ import type { OperatorsStates, submitMode } from "../types"
 import QuestionArea from '../components/QuestionArea';
 import styles from '../mystyle.module.css'
 import useSettingsStore from '../store.ts'
-
+//use zustand, https://fullstackopen.com/osa6/flux_arkkitehtuuri_ja_zustand
 const GamePage = () => { 
   const siteName = "speedMath Training";
   const { questions, changeQuestions, digits, changeDigits, usedOperators, changeUsedOperators } = useSettingsStore()
@@ -85,9 +85,9 @@ const GamePage = () => {
         </form>
        <h4> Number of digits [{range[0]} - {range[1]}]</h4>
   
-          min: <input className={styles.slider} id="mininp" type = "range" min="1" max="5" value = {range[0]} onChange={handleChange}/>
+          Min: <input className={styles.slider} id="mininp" type = "range" min="1" max="5" value = {range[0]} onChange={handleChange}/>
           <br></br>
-          max: <input className={styles.slider} id="maxinp" type = "range" min="1" max="5" value = {range[1]} onChange={handleChange}/>
+          Max: <input className={styles.slider} id="maxinp" type = "range" min="1" max="5" value = {range[1]} onChange={handleChange}/>
         <br></br>
         <h4>Number of questions: {numberOfQuestions}</h4>
         

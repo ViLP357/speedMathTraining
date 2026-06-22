@@ -258,8 +258,8 @@ button:active{
   padding: 0;
   border: 7px solid #8d30bf;
   appearance: none;
- 
- 
-
-
+}
+.calc {
+  width: 5%;
+  float: left;
 }

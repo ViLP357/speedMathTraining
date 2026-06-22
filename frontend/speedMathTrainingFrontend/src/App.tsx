@@ -3,6 +3,7 @@ import InfoPage from './components/InfoPage';
 import DailyChallenge from './components/DailyChallenge';
 import styles from './mystyle.module.css'
 import { useEffect, useState } from 'react';
+import calc from './assets/calcPNG.png';
 
 import {
   BrowserRouter as Router,
@@ -12,14 +13,13 @@ import {
 const App = () => {
    const [theme, setTheme] = useState('light');
 
-  console.log(theme)
-
   useEffect(() => {
     document.body.className = theme
   }, [theme])
- return ( //use zustand, https://fullstackopen.com/osa6/flux_arkkitehtuuri_ja_zustand
+ return ( 
       <Router>
         <div className= {styles.navigation}>
+          <img className={styles.calc} src={calc}></img>
           speedMathTraining
           <Link className= {styles.link} to="/">home</Link>
           <Link className = {styles.link} to="/info">info</Link>

@@ -73,7 +73,7 @@ const QuestionArea = ({acceptedOperators, setStarted, digits, numberOfQuestions,
           <div className= {styles.questionArea}>
            <Timer seconds = {seconds} setSeconds = {setSeconds}/>
             <QuestionForm question = {questionList[questionNumber]}  onAnswer = {handleAnswer}/>
-            <button onClick={() => nextQuestion(setQuestionNumber, questionNumber)}>Next</button>
+            <button onClick={() => nextQuestion(setQuestionNumber, questionNumber)}>Skip</button>
             <p>Question: {questionNumber+1} / {questionList.length}</p>
             <p>Correct: {correct}</p>
             
@@ -82,13 +82,14 @@ const QuestionArea = ({acceptedOperators, setStarted, digits, numberOfQuestions,
   }
   return (
     <div className={styles.results}>
-      <p>Results</p>
+      <h4>Results</h4>
       You got {correct} questions of {questionList.length} correct
       
       <br></br>
       <div className={styles.timer}>
         {Math.floor(seconds/60).toString().padStart(2, "0")}:{Math.floor(seconds%60).toString().padStart(2, "0")}
       </div>
+      <p>Average {seconds/(questionList.length)}s per question</p>
        <br></br>
       <button className= {styles.basicButton} onClick={restart}>Restart</button>
     </div>

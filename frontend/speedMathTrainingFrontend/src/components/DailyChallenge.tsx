@@ -15,7 +15,7 @@ const DailyChallenge = ()=> {
    
     return (
         <div>
-           <h3 className={styles.header}>Todays challenge</h3>
+           <h3 className={styles.header}>Today's challenge</h3>
             <p>2-3 digits</p>
             <p>10 questions</p>
             <p>operators: +, -</p>
