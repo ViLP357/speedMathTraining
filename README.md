@@ -3,7 +3,7 @@ A website for training mental math (coming!)
 >This is one of my projects for Stardance by Hack club. Not ready yet.
 
 ## ℹ️ Overview
-> Note: this project contains currently only the frontend. The backend exists but there isn't much. I might do something with later. 
+> Note: this project contains currently only the frontend. The backend exists but there isn't much. I might do something with later.
 
 I wanted to create this website do I could maintain my mental math skills. Nowadays I use a calculator most of the time in math classes and I've noticed I'm not as fast as I used to be in headcounts.
 
