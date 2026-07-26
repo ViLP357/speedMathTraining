@@ -2,6 +2,7 @@
   "name": "speedmathtrainingfrontend",
   "private": true,
   "version": "0.0.0",
+  "homepage": "https://ViLP357.github.io/speedMathTraining",
   "type": "module",
   "scripts": {
     "dev": "vite",

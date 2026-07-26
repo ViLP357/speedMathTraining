@@ -4,13 +4,14 @@ A website for training mental math (coming!)
 
 ## ℹ️ Overview
 > Note: this project contains currently only the frontend. The backend exists but there isn't much. I might do something with later. 
+
 I wanted to create this website do I could maintain my mental math skills. Nowadays I use a calculator most of the time in math classes and I've noticed I'm not as fast as I used to be in headcounts.
 
 When I started to look for an already existing site, I found many but none of them was exactly what I wanted or needed. So I decided to make my own. 
-Why speedMath Training is different:
+### Why speedMath Training is different:
 - No login
 - A good (or at least better) UI
-- Questions that are as customizable asn possible
+- Questions that are as customizable as possible
 - Simple layout
 - A cute mascot Calc
 
