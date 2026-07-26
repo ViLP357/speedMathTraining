@@ -17,7 +17,7 @@ const App = () => {
     document.body.className = theme
   }, [theme])
  return ( 
-      <Router>
+      <Router basename="/speedMathTraining">
         <div className= {styles.navigation}>
           <img className={styles.calc} src={calc}></img>
           speedMathTraining
