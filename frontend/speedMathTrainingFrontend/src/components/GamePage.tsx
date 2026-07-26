@@ -66,7 +66,7 @@ const GamePage = () => {
       
       <div className={styles.preferencesArea}>
       
-        <h4>Choose submit mode (no wait until correct yet)</h4>
+        <h4>Choose submit mode</h4>
         <form >
           <label>
             <input className={styles.radio} type = "radio" id="auto_submit" checked= {submitMode===0}onChange={handleSubmitMode}/>
