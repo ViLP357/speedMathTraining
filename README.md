@@ -16,7 +16,7 @@ When I started to look for an already existing site, I found many but none of th
 - A cute mascot Calc
 
 ## Try It! ▶️
-* (Link here)
+* [https://vilp357.github.io/speedMathTraining/](https://vilp357.github.io/speedMathTraining/)
 The website is optimized for a computer screen. It works also on mobile but there might be some issues with responsive design.
 
 ## How to run 🏃
