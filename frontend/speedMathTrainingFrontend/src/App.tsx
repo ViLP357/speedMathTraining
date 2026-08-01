@@ -20,10 +20,11 @@ const App = () => {
       <Router basename="/speedMathTraining">
         <div className= {styles.navigation}>
           <img className={styles.calc} src={calc}></img>
-          speedMathTraining
+          <span>speedMathTraining</span>
           <Link className= {styles.link} to="/">home</Link>
           <Link className = {styles.link} to="/info">info</Link>
           <Link className = {styles.link}to="/dailychallenge">Daily Challenge</Link>
+          
          <input className={styles.darkLightSwitch}type="checkbox" onClick={() => {setTheme((prev) => (prev === 'light' ? 'dark' : 'light'))}}/>
          <h1 className={styles.icon}> {theme === "light" ? "☀️" : "🌙"}</h1>
         </div>

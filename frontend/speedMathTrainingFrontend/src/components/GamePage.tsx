@@ -68,20 +68,20 @@ const GamePage = () => {
       
         <h4>Choose submit mode</h4>
         <form >
-          <label>
+          <label style={{display: "inline-flex", alignItems:"center"}}>
             <input className={styles.radio} type = "radio" id="auto_submit" checked= {submitMode===0}onChange={handleSubmitMode}/>
-          wait until corrrect</label>
+          Wait until corrrect</label>
           
-          <label>
+          <label style={{display: "inline-flex", alignItems:"center"}}>
             <input className={styles.radio} type = "radio" id="no_auto_submit" checked= {submitMode===1} onChange={handleSubmitMode}/>
-          automatically move to next</label>
+          Automatically move to next</label>
         </form>
 
       <h4>Operators used</h4>
         <form>    
-          <input className={styles.checkbox} type = "checkbox" name = "addition" checked={operators.addition} onChange={handleOperatorChange}/>+
-          <input className={styles.checkbox} type = "checkbox" name="subtraction" checked={operators.subtraction} onChange={handleOperatorChange}/>-
-          <input className={styles.checkbox} type = "checkbox" name="multiplication" checked={operators.multiplication} onChange={handleOperatorChange}/>*
+          <label style={{display: "inline-flex", alignItems:"center"}}> <input className={styles.checkbox} type = "checkbox" name = "addition" checked={operators.addition} onChange={handleOperatorChange}/>+</label>
+           <label style={{display: "inline-flex",alignItems:"center"}}> <input className={styles.checkbox} type = "checkbox" name="subtraction" checked={operators.subtraction} onChange={handleOperatorChange}/>-</label>
+           <label style={{display: "inline-flex", alignItems:"center"}}> <input className={styles.checkbox} type = "checkbox" name="multiplication" checked={operators.multiplication} onChange={handleOperatorChange}/>×</label>
         </form>
        <h4> Number of digits [{range[0]} - {range[1]}]</h4>
   

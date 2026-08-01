@@ -3,7 +3,9 @@ import { useState } from 'react'
 import React from 'react'; 
 import QuestionForm from "./QuestionForm";
 import Timer from "./Timer"
-import styles from '../mystyle.module.css'; 
+import styles from '../mystyle.module.css';
+import calcRun from '../assets/calcRun.png';
+
 
 
 const nextQuestion =  (setQuestionNumber : React.Dispatch<React.SetStateAction<number>>, questionNumber : number) => {
@@ -55,10 +57,14 @@ const QuestionArea = ({acceptedOperators, setStarted, digits, numberOfQuestions,
     setCorrect(0)
     setStarted(false)
   }
+  const newWrongAnswer = () => {
+    setWrongAnswer(wrongAnswer+1)
+  }
 
   const [questionNumber, setQuestionNumber] = useState<number>(0);
   const [correct, setCorrect] = useState<number>(0);
   const [seconds, setSeconds ] = useState<number>(0);
+  const [wrongAnswer, setWrongAnswer] = useState<number>(0);
   const [questionList] = useState<Question[]>(()=> {
     const questions: Question[] = [];
     for (let i = 0; i<numberOfQuestions;i++) {
@@ -72,7 +78,7 @@ const QuestionArea = ({acceptedOperators, setStarted, digits, numberOfQuestions,
     return (        
           <div className= {styles.questionArea}>
            <Timer seconds = {seconds} setSeconds = {setSeconds}/>
-            <QuestionForm question = {questionList[questionNumber]}  onAnswer = {handleAnswer}/>
+            <QuestionForm question = {questionList[questionNumber]}  onAnswer = {handleAnswer} newWrongAnswer={newWrongAnswer}/>
             <button onClick={() => nextQuestion(setQuestionNumber, questionNumber)}>Skip</button>
             <p>Question: {questionNumber+1} / {questionList.length}</p>
             <p>Correct: {correct}</p>
@@ -90,8 +96,10 @@ const QuestionArea = ({acceptedOperators, setStarted, digits, numberOfQuestions,
         {Math.floor(seconds/60).toString().padStart(2, "0")}:{Math.floor(seconds%60).toString().padStart(2, "0")}
       </div>
       <p>Average {seconds/(questionList.length)}s per question</p>
+      <p>Wrong answers: {wrongAnswer}</p>
        <br></br>
       <button className= {styles.basicButton} onClick={restart}>Restart</button>
+      <img src = {calcRun} style={{width: '18%'}}></img>
     </div>
         
   )

@@ -5,12 +5,12 @@ import styles from '../mystyle.module.css';
 const QuestionComponent = ({question} : {question: Question}) => {
   return (
     <div>
-    {question.val1} {question.operator}  {question.val2} 
+    {question.val1} {question.operator=="*" ? '×' : question.operator}   {question.val2} 
     </div>
   )
 }
 
-const QuestionForm = ({question, onAnswer} : {question : Question, onAnswer: (isCorrect: boolean)=> void}) => {
+const QuestionForm = ({question, onAnswer, newWrongAnswer} : {question : Question, onAnswer: (isCorrect: boolean)=> void, newWrongAnswer: () => void}) => {
    
     const [answer, setAnswer] = useState<string>("");
     const [shadowColor, setShadowColor] = useState<string>("");
@@ -35,6 +35,7 @@ const QuestionForm = ({question, onAnswer} : {question : Question, onAnswer: (is
         setShadowColor("green")
       } else {
         setShadowColor("red")
+        newWrongAnswer();
       }
       setTimeout(() => setShadowColor(""), 200)
     }

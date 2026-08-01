@@ -107,11 +107,13 @@ button:active{
     background-color: var(--base-blue);
     padding: 10px;
     height: 50px;
-    
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: 800;
+    box-sizing: border-box;
+    
 }
 /*font-family: 'OCR A Std', monospace;*/
 .timer {
@@ -121,10 +123,12 @@ button:active{
     border-width: 2px;
     padding: 10px;
     margin:4px;
-  
     border-radius: 20px;
     width: fit-content;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
+
+
 
 .slider {
   -webkit-appearance: none;  /* Override default CSS styles */
@@ -262,4 +266,25 @@ button:active{
 .calc {
   width: 5%;
   float: left;
+}
+
+@media (max-width: 700px) {
+    .navigation {
+        flex-wrap: wrap;
+        justify-content: center;
+        height: auto;
+        row-gap: 8px;
+    }
+
+    .calc {
+        width: 28px;
+    }
+
+    .icon {
+        font-size: 1.3rem;
+    }
+
+    .link {
+        font-size: 0.9rem;
+    }
 }
