@@ -9,6 +9,12 @@ A website for training mental math
 
 (click that button!)
 
+
+Example of the site with a question (question parameters: operator: +, digits: 1-2). 
+
+<img width="1912" height="616" alt="readyExSite" src="https://github.com/user-attachments/assets/17411e89-b982-4879-bdef-b10f1361b431" />
+
+
 I wanted to create this website do I could maintain my mental math skills. Nowadays I use a calculator most of the time in math classes and I've noticed I'm not as fast as I used to be in headcounts.
 
 When I started to look for an already existing site, I found many but none of them was exactly what I wanted or needed. So I decided to make my own. 
@@ -22,6 +28,18 @@ When I started to look for an already existing site, I found many but none of th
 ## Try It! ▶️
 * [https://vilp357.github.io/speedMathTraining/](https://vilp357.github.io/speedMathTraining/)
 The website is optimized for a computer screen. It works also on mobile but there might be some issues with responsive design.
+
+## Features
+- Question customization:
+  - Set min and max for digits.
+  - Choose 1-3 of these operators: +, -, and ×
+  - Set number of questions
+- Gameplay
+  - Skip questions
+  - Select between moving on to the next question and staying on to a question until correct if wrong answer submitted.
+- Dark and light mode
+- Timer
+- Daily Challenge, which is actually a specific hard coded mode currently.
 
 ## How to run 🏃
 Clone repository:
