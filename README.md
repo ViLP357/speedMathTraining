@@ -1,5 +1,5 @@
 # speedMath Training
-A website for training mental math
+A website for training mental math.
 >This is one of my projects for Stardance by Hack club.
 >
 ## ℹ️ Overview
@@ -77,15 +77,18 @@ This is how the website looked in the beginning of Stardance. There was only tha
 
 ### Some Progress...
 
-<img width="761" height="442" alt="Näyttökuva 2026-06-05 155442" src="https://github.com/user-attachments/assets/cff5d613-d796-4815-a2bd-37779deeee1b" />
+<img width="300" height="174" alt="Näyttökuva 2026-06-05 155442" src="https://github.com/user-attachments/assets/cff5d613-d796-4815-a2bd-37779deeee1b" />
 
 ### Starting to look good.
 
-<img width="500" height="375" alt="styles" src="https://github.com/user-attachments/assets/60b02729-21d9-4380-bfb9-dff250ef9a52" />
+<img width="350" height="245" alt="styles" src="https://github.com/user-attachments/assets/60b02729-21d9-4380-bfb9-dff250ef9a52" />
 
 ### The ready site on a mobile screen.
 
-<img width="367" height="822" alt="smtMobile" src="https://github.com/user-attachments/assets/471c761c-1279-41ce-9eb5-35a51e542409" />
+<img width="250" height="560" alt="smtMobile" src="https://github.com/user-attachments/assets/471c761c-1279-41ce-9eb5-35a51e542409" />
+
+## Highlight: technical implementation
+At some point of developing speedMath Training, I got annoyed by passing react states as props from a parent to multiple children. In some cases the parent didn't even use those React states. That's when I had to discover Zustand. I created a store for child components to use. Now components can get easily game settings (e.g. number of digits) from the store. I still use React state for other things (because it would be too annoying to change everything to use a Store. 
 
 
 ## Technologies 🔧 
