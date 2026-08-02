@@ -4,6 +4,7 @@ A website for training mental math (coming!)
 
 ## ℹ️ Overview
 > Note: this project contains currently only the frontend. The backend exists but there isn't much. I might do something with later.
+[<img width="500" height="150" alt="TryItBtn" src="https://github.com/user-attachments/assets/810c980c-d8ce-4f16-a109-1d19689a4599" />](https://vilp357.github.io/speedMathTraining/))
 
 I wanted to create this website do I could maintain my mental math skills. Nowadays I use a calculator most of the time in math classes and I've noticed I'm not as fast as I used to be in headcounts.
 
